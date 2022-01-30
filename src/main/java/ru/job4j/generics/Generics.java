@@ -19,14 +19,26 @@ public class Generics {
         gen.printObject(third);
         System.out.println();
 
-        //gen.printBoundedWildCard(first);
+        /**
+         * В метод передается лист с типом
+         * Animal, но параметр метода ограничен
+         * сверху типом Predator, поэтому тип Animal
+         * не подходит и возникает ошибка компиляции
+         * gen.printBoundedWildCard(first);
+         */
         gen.printBoundedWildCard(second);
         gen.printBoundedWildCard(third);
         System.out.println();
 
         gen.printLowerBoundedWildCard(first);
         gen.printLowerBoundedWildCard(second);
-        //gen.printLowerBoundedWildCard(third);
+        /**
+         * В метод передается лист с типом
+         * Tiger, но параметр метода ограничен
+         * снизу типом Predator, поэтому тип Tiger
+         * не подходит и возникает ошибка компиляции
+         * gen.printLowerBoundedWildCard(third);
+         */
     }
 
     public void printObject(List<?> list) {
