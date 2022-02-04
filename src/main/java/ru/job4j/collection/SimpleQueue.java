@@ -9,24 +9,21 @@ public class SimpleQueue<T> {
     private int topOut;
 
     public T poll() {
-        while (topIn > 0) {
-            out.push(in.pop());
-            topIn--;
-            topOut++;
-        }
         if (topOut == 0) {
-            throw new NoSuchElementException();
+            if (topIn == 0) {
+                throw new NoSuchElementException();
+            }
+            while (topIn > 0) {
+                out.push(in.pop());
+                topOut++;
+                topIn--;
+            }
         }
         topOut--;
         return out.pop();
     }
 
     public void push(T value) {
-        while (topOut > 0) {
-            in.push(out.pop());
-            topOut--;
-            topIn++;
-        }
         in.push(value);
         topIn++;
     }
