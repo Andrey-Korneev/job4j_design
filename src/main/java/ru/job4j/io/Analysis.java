@@ -6,11 +6,11 @@ public class Analysis {
     public void unavailable(String source, String target) {
         try (BufferedReader reader = new BufferedReader(new FileReader(source));
              PrintWriter writer = new PrintWriter(new FileWriter(target))) {
-            var lines = reader.lines().toList();
             boolean isWorking = true;
             String start = null;
             String end = null;
-            for (var line : lines) {
+            String line = reader.readLine();
+            while (line != null) {
                 if (line.startsWith("4") || line.startsWith("5")) {
                     if (isWorking) {
                         start = line.split("\\s")[1];
@@ -19,10 +19,14 @@ public class Analysis {
                 } else {
                     if (!isWorking) {
                         end = line.split("\\s")[1];
-                        writer.println(start + ";" + end);
+                        writer.append(start)
+                                .append(';')
+                                .append(end)
+                                .append(System.lineSeparator());
                         isWorking = true;
                     }
                 }
+                line = reader.readLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
