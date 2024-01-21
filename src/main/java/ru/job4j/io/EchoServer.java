@@ -18,13 +18,10 @@ public class EchoServer {
                     output.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                     var string = input.readLine();
                     var message = getParameterValue(string, "msg");
-                    System.out.println(string);
-                    for (string = input.readLine(); string != null && !string.isEmpty(); string = input.readLine()) {
-                        System.out.println(string);
-                    }
-                    output.flush();
-                    if ("Buy".equals(message)) {
-                        server.close();
+                    switch (message) {
+                        case "Hello" -> output.write("Hello, dear friend.".getBytes());
+                        case "Exit" -> server.close();
+                        default -> output.write(message.getBytes());
                     }
                 }
             }
