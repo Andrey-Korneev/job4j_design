@@ -1,0 +1,8 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<planet name="Mars" systemNumber="4" isLivable="false">
+    <planetParameters mass="6.42e23" diameter="6779"/>
+    <moons>
+        <moon>Phobos</moon>
+        <moon>Deimos</moon>
+    </moons>
+</planet>
