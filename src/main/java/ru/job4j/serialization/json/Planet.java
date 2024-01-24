@@ -17,6 +17,26 @@ public class Planet {
         this.moons = moons;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getSystemNumber() {
+        return systemNumber;
+    }
+
+    public boolean isLivable() {
+        return isLivable;
+    }
+
+    public PlanetParameters getParameters() {
+        return parameters;
+    }
+
+    public String[] getMoons() {
+        return moons;
+    }
+
     @Override
     public String toString() {
         return "Planet{"

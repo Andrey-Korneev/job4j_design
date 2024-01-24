@@ -9,6 +9,14 @@ public class PlanetParameters {
         this.diameter = diameter;
     }
 
+    public double getMass() {
+        return mass;
+    }
+
+    public int getDiameter() {
+        return diameter;
+    }
+
     @Override
     public String toString() {
         return "PlanetParameters{"
