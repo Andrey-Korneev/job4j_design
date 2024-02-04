@@ -44,7 +44,7 @@ create table items(
 create table comments(
     id serial primary key,
     content varchar(255),
-    addition_date timestamp
+    addition_date timestamp,
     item_id int references items(id)
 );
 
